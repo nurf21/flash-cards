@@ -1,7 +1,7 @@
 export default function ProgressBar({ current, total }) {
   const percentage = (current / total) * 100;
   return (
-    <div className="py-6">
+    <div className="my-6 w-full">
       <div className="w-full h-4 bg-gray-300 dark:bg-gray-700 rounded-full overflow-hidden">
         <div
           className="h-full bg-blue-600 dark:bg-blue-400 transition-all"

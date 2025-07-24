@@ -24,14 +24,14 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col items-center justify-center px-4 py-6 sm:px-6">
-      <main className="min-w-full px-4 md:min-w-xl lg:min-w-2xl">
+      <main className="md:min-w-2xl">
         <ProgressBar current={index + 1} total={flashcards.length} />
         <FlashCard
           key={index}
           question={flashcards[index].question}
           answer={flashcards[index].answer}
         />
-        <div className="flex flex-col sm:flex-row justify-between items-center w-full mt-6 gap-3 text-sm text-gray-700 dark:text-gray-300">
+        <div className="flex flex-row justify-between items-center w-full mt-6 gap-3 text-sm text-gray-700 dark:text-gray-300">
           <button
             onClick={prevCard}
             disabled={index === 0}
