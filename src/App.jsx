@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import FlashCard from "./components/FlashCard"
 import ProgressBar from "./components/ProgressBar";
 import { flashcards } from './data/flashcard';
@@ -9,6 +9,19 @@ function App() {
 
   const nextCard = () => setIndex((prev) => Math.min(prev + 1, flashcards.length - 1));
   const prevCard = () => setIndex((prev) => Math.max(prev - 1, 0));
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowRight') {
+        nextCard();
+      } else if (e.key === 'ArrowLeft') {
+        prevCard();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-500 ease-in-out">
@@ -29,7 +42,6 @@ function App() {
           >
             &lt; Previous
           </button>
-          <span className="pr-3.75">{index + 1} of {flashcards.length}</span>
           <button
             onClick={nextCard}
             disabled={index === flashcards.length - 1}
