@@ -37,3 +37,34 @@ git clone https://github.com/nurf21/flash-cards.git
 cd flash-cards
 npm install
 npm run dev
+````
+
+---
+
+## 🧪 Usage
+
+* Click **"Show Answer"** to flip the card.
+* Use **"Previous" / "Next"** to navigate.
+* Use the **left/right arrow keys** as shortcuts.
+* Works great on desktop and mobile.
+* Automatically picks random card order on each refresh.
+
+---
+
+## 🌗 Theme
+
+The app supports both **light** and **dark** themes.
+Your system preference is detected automatically.
+
+---
+
+## 📝 License
+
+This project is open-source and available under the **MIT License**.
+
+---
+
+## 🙌 Acknowledgments
+
+* Project Source: [https://roadmap.sh/projects/flash-cards](https://roadmap.sh/projects/flash-cards)
+* JavaScript questions adapted from various open-source resources.
