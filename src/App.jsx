@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import FlashCard from "./components/FlashCard"
 import ProgressBar from "./components/ProgressBar";
-import { flashcards } from './data/flashcard';
+import { flashcards as initialFlashcards } from "./data/flashcard";
 
 function App() {
   const [index, setIndex] = useState(0);
+  const [flashcards] = useState(() => shuffleArray(initialFlashcards));
 
   const nextCard = () => setIndex((prev) => Math.min(prev + 1, flashcards.length - 1));
   const prevCard = () => setIndex((prev) => Math.max(prev - 1, 0));
@@ -22,8 +23,17 @@ function App() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  function shuffleArray(array) {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  }
+
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col items-center justify-center px-4 py-6 sm:px-6">
+    <div className="min-h-screen font-mono bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col items-center justify-center px-4 py-6 sm:px-6">
       <main className="md:min-w-2xl">
         <ProgressBar current={index + 1} total={flashcards.length} />
         <FlashCard
