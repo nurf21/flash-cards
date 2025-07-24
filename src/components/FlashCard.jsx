@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export default function FlashCard({ question, answer }) {
   const [showAnswer, setShowAnswer] = useState(false);
 
   return (
+    <AnimatePresence mode="wait">
     <motion.div
       key={showAnswer ? "answer" : "question"}
       initial={{ opacity: 0, rotateY: -90 }}
@@ -24,5 +25,6 @@ export default function FlashCard({ question, answer }) {
         {showAnswer ? "Hide Answer" : "Show Answer"}
       </button>
     </motion.div>
+    </AnimatePresence>
   );
 }
