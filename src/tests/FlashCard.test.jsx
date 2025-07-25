@@ -2,17 +2,7 @@ import { expect, test } from "vitest";
 import { render } from "vitest-browser-react";
 import FlashCard from "../components/FlashCard";
 
-test('shows the question text when showAnswer is false', async () => {
-  const { getByText } = render(
-    <FlashCard
-      question="What is JS?"
-      answer="A programming language"
-    />
-  );
-  await expect.element(getByText("What is JS?")).toBeInTheDocument();
-});
-
-test('calls onClick when flashcard is clicked', async () => {
+test('render question, answer, and button label correctly', async () => {
   const { getByRole, getByText } = render(
     <FlashCard
       question="What is JavaScript?"
@@ -20,6 +10,16 @@ test('calls onClick when flashcard is clicked', async () => {
     />
   );
 
+  await expect.element(getByText("What is JavaScript?")).toBeInTheDocument();
+  await expect.element(getByText("Show Answer")).toBeInTheDocument();
+
   await getByRole('button').click();
+
   await expect.element(getByText("A programming language")).toBeInTheDocument();
+  await expect.element(getByText("Hide Answer")).toBeInTheDocument();
+
+  await getByRole('button').click();
+
+  await expect.element(getByText("What is JavaScript?")).toBeInTheDocument();
+  await expect.element(getByText("Show Answer")).toBeInTheDocument();
 });
