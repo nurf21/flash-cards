@@ -1,7 +1,6 @@
 import { expect, test } from "vitest";
 import { render } from "vitest-browser-react";
 import FlashCard from "../components/FlashCard";
-import { page } from "@vitest/browser/context";
 
 test('shows the question text when showAnswer is false', async () => {
   const { getByText } = render(
