@@ -15,6 +15,7 @@ export default function ProgressBar({ current, total }) {
         aria-label="Progress"
       >
         <div
+          data-testid="progress-fill"
           className="h-full bg-blue-600 dark:bg-blue-400 transition-[width] duration-300 ease-in-out"
           style={{ width: `${percentage}%` }}
         />
