@@ -7,7 +7,7 @@ export default function ProgressBar({ current, total }) {
   return (
     <div className="my-6 w-full">
       <div
-        className="w-full h-4 bg-gray-300 dark:bg-gray-700 rounded-full overflow-hidden"
+        className="h-4 w-full overflow-hidden rounded-full bg-gray-300 dark:bg-gray-700"
         role="progressbar"
         aria-valuenow={Math.round(percentage)}
         aria-valuemin={0}
@@ -16,11 +16,11 @@ export default function ProgressBar({ current, total }) {
       >
         <div
           data-testid="progress-fill"
-          className="h-full bg-blue-600 dark:bg-blue-400 transition-[width] duration-300 ease-in-out"
+          className="h-full bg-blue-600 transition-[width] duration-300 ease-in-out dark:bg-blue-400"
           style={{ width: `${percentage}%` }}
         />
       </div>
-      <p className="text-sm text-center mt-2 text-gray-700 dark:text-gray-300">
+      <p className="mt-2 text-center text-sm text-gray-700 dark:text-gray-300">
         {label}
       </p>
     </div>

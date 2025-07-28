@@ -8,7 +8,7 @@ export default function NavigationButton({ onClick, direction, disabled }) {
         data-testid={`${direction}-button`}
         onClick={onClick}
         disabled={disabled}
-        className="w-full sm:w-auto px-4 py-2 text-blue-600 dark:text-blue-400 cursor-pointer disabled:opacity-50 transition"
+        className="w-full cursor-pointer px-4 py-2 text-blue-600 transition disabled:opacity-50 sm:w-auto dark:text-blue-400"
       >
         {isNext ? "Next →" : "← Previous"}
       </button>

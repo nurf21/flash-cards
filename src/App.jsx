@@ -9,7 +9,8 @@ function App() {
   const flashcards = useMemo(() => shuffleArray(initialFlashcards), []);
   const [index, setIndex] = useState(0);
 
-  const nextCard = () => setIndex((prev) => Math.min(prev + 1, flashcards.length - 1));
+  const nextCard = () =>
+    setIndex((prev) => Math.min(prev + 1, flashcards.length - 1));
   const prevCard = () => setIndex((prev) => Math.max(prev - 1, 0));
 
   useEffect(() => {
@@ -17,13 +18,13 @@ function App() {
       if (e.key === "ArrowRight") nextCard();
       if (e.key === "ArrowLeft") prevCard();
     };
-    
+
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   });
 
   return (
-    <div className="min-h-screen font-mono bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col items-center justify-center px-4 py-6 sm:px-6">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-gray-100 px-4 py-6 font-mono text-gray-900 sm:px-6 dark:bg-gray-900 dark:text-gray-100">
       <main className="w-full max-w-2xl">
         <ProgressBar current={index + 1} total={flashcards.length} />
         <FlashCard
@@ -31,7 +32,7 @@ function App() {
           question={flashcards[index].question}
           answer={flashcards[index].answer}
         />
-        <nav className="flex justify-between items-center w-full mt-6 gap-3 text-sm text-gray-700 dark:text-gray-300">
+        <nav className="mt-6 flex w-full items-center justify-between gap-3 text-sm text-gray-700 dark:text-gray-300">
           <NavigationButton
             onClick={prevCard}
             direction={"prev"}

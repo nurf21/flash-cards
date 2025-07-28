@@ -55,7 +55,8 @@ export const flashcards = [
       "Arrow functions are concise function expressions that do not have their own `this`, `arguments`, or `super`.",
   },
   {
-    question: "What is the difference between synchronous and asynchronous code?",
+    question:
+      "What is the difference between synchronous and asynchronous code?",
     answer:
       "Synchronous code blocks execution until it completes; asynchronous code allows other operations to run while it executes.",
   },

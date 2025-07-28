@@ -4,7 +4,7 @@ import NavigationButton from "../components/NavigationButton";
 
 test("renders 'Next →' button when direction is 'next'", async () => {
   const { getByRole } = render(
-    <NavigationButton direction="next" onClick={() => { }} disabled={false} />
+    <NavigationButton direction="next" onClick={() => {}} disabled={false} />,
   );
   const button = getByRole("button");
   await expect.element(button).toBeInTheDocument();
@@ -13,7 +13,7 @@ test("renders 'Next →' button when direction is 'next'", async () => {
 
 test("renders '← Previous' button when direction is 'prev'", async () => {
   const { getByRole } = render(
-    <NavigationButton direction="prev" onClick={() => { }} disabled={false} />
+    <NavigationButton direction="prev" onClick={() => {}} disabled={false} />,
   );
   const button = getByRole("button");
   await expect.element(button).toBeInTheDocument();
@@ -22,7 +22,7 @@ test("renders '← Previous' button when direction is 'prev'", async () => {
 
 test("button is disabled when disabled prop is true", async () => {
   const { getByRole } = render(
-    <NavigationButton direction="next" onClick={() => { }} disabled />
+    <NavigationButton direction="next" onClick={() => {}} disabled />,
   );
   const button = getByRole("button");
   await expect.element(button).toBeDisabled();
