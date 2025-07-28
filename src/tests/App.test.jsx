@@ -1,7 +1,7 @@
-import { render, fireEvent } from "vitest-browser-react";
+import { render } from "vitest-browser-react";
 import { expect, test, vi } from "vitest";
 import App from "../App";
-import { page, userEvent } from "@vitest/browser/context";
+import { userEvent } from "@vitest/browser/context";
 
 // Mock data
 vi.mock("../data/flashcard", () => ({

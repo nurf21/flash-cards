@@ -3,7 +3,7 @@ export default function NavigationButton({ onClick, direction, disabled }) {
   const isNext = direction === "next";
 
   return (
-    <div className="flex justify-center w-full mt-6">
+    <div className="mt-6">
       <button
         data-testid={`${direction}-button`}
         onClick={onClick}
